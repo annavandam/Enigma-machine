@@ -20,22 +20,30 @@ while True:
    rotor1.beginstand = int(input())
    break
   except:
-    print("Alleen getallen werken hier")
+    print("Hier kunt u alleen getallen invoeren.")
 while True:
   print("Stand rotor 2:")
   try:
    rotor2.beginstand = int(input())
    break
   except:
-    print("Alleen getallen werken hier")
+    print("Hier kunt u alleen getallen invoeren.")
 while True:
   print("Stand rotor 3:")
   try:
    rotor3.beginstand = int(input())
    break
   except:
-    print("Alleen getallen werken hier")
+    print("Hier kunt u alleen getallen invoeren.")
 
 print("Voer de tekst in die u wilt omzetten.")
 #De tekst input die het moet worden gecodeerd. 
 TeVertalenString = input()
+
+#De TeVertalenString wordt een list.
+TeVertalenLijst = [char for char in TeVertalenString.lower()]
+
+#Functie die een rotor een aantal keer laat draaien.
+def RotorDraai(draaiingen, rotor):
+  rotor = (rotor.lettervolgorde[-draaiingen:] + rotor.lettervolgorde)[0: 26]
+  return rotor
