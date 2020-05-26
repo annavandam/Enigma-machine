@@ -1,4 +1,5 @@
 alfabet = "abcdefghijklmnopqrstuvwxyz"
+VertaaldeTekst = []
 
 #De class van de rotoren, hiervan worden later drie objecten gemaakt omdat er drie rotoren zijn.
 class Rotor:
@@ -52,3 +53,21 @@ def RotorDraai(draaiingen, rotor):
 rotor1.lettervolgorde = RotorDraai(rotor1.beginstand, rotor1)
 rotor2.lettervolgorde = RotorDraai(rotor2.beginstand, rotor2)
 rotor3.lettervolgorde = RotorDraai(rotor3.beginstand, rotor3)
+
+
+
+#Hier gaan de letters daadwerkelijk door de rotoren:
+#Per letter wordt dit doorlopen.
+for x in TeVertalenLijst:
+  #Gaat door rotor 1, 2 & 3.
+  x = rotor1.lettervolgorde[alfabet.index(x)]
+  x = rotor2.lettervolgorde[alfabet.index(x)]
+  x = rotor3.lettervolgorde[alfabet.index(x)]
+  #Alfabet omkeren.
+  x = alfabet[::-1][alfabet.index(x)]
+  #Opnieuw door de rotoren maar nu vanaf de andere kant benaderd.
+  x = alfabet[rotor3.lettervolgorde.index(x)]
+  x = alfabet[rotor2.lettervolgorde.index(x)]
+  x = alfabet[rotor3.lettervolgorde.index(x)]
+  VertaaldeTekst.append(x)
+  
