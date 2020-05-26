@@ -47,3 +47,8 @@ TeVertalenLijst = [char for char in TeVertalenString.lower()]
 def RotorDraai(draaiingen, rotor):
   rotor = (rotor.lettervolgorde[-draaiingen:] + rotor.lettervolgorde)[0: 26]
   return rotor
+
+#De rotoren worden gedraaid naar hun beginstand
+rotor1.lettervolgorde = RotorDraai(rotor1.beginstand, rotor1)
+rotor2.lettervolgorde = RotorDraai(rotor2.beginstand, rotor2)
+rotor3.lettervolgorde = RotorDraai(rotor3.beginstand, rotor3)
