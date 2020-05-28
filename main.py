@@ -78,8 +78,11 @@ while True:
   steckerbrett = {}
   VertaaldeTekst = []
 
-  if (input("Wilt u het steckerbrett gebruiken? ").lower == "ja"):
+
+  DeInput = input("Wilt u het steckerbrett gebruiken? Ja of Nee ")
+  if (DeInput == "JA" or DeInput == "ja" or DeInput == "Ja"):
     SteckerbrettInstellen()
+  
   RotorenInstellen()
 
   print("Voer de tekst in die u wilt encrypten/decrypten.")
@@ -117,5 +120,5 @@ while True:
   print("\nWilt u nog een keer?")
   
   while True:
-    if input("Wilt u nog een keer? Ja of Nee").lower == "ja":
+    if input("Wilt u nog een keer? Ja of Nee") == "ja" or input("Wilt u nog een keer? Ja of Nee") == "JA" or input("Wilt u nog een keer? Ja of Nee") == "Ja":
       break
