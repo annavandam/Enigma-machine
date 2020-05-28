@@ -8,8 +8,6 @@ steckerbrett = { "a" : "z",
                  "g" : "f",
                  "f" : "g"}
 
-
-
 #De class van de rotoren, hiervan worden later drie objecten gemaakt omdat er drie rotoren zijn.
 class Rotor:
   def __init__(self, nummer, lettervolgorde, stand):
@@ -35,8 +33,7 @@ def LetterDoorRotoren(InputLetter):
   #Opnieuw door de rotoren maar nu vanaf de andere kant benaderd.
   InputLetter = alfabet[rotor3.lettervolgorde.index(InputLetter)]
   InputLetter = alfabet[rotor2.lettervolgorde.index(InputLetter)]
-  InputLetter = alfabet[rotor3.lettervolgorde.index(InputLetter)]
-
+  InputLetter = alfabet[rotor1.lettervolgorde.index(InputLetter)]
   #Rotor 1 draait één tikje.
   rotor1.lettervolgorde = RotorDraai(1, rotor1)
   rotor1.stand += 1
@@ -52,7 +49,6 @@ def LetterDoorRotoren(InputLetter):
       rotor3.lettervolgorde = RotorDraai(1, rotor3)
       rotor3.stand += 1
   return InputLetter
-
 
 #De rotoren worden hier aangemaakt.
 rotor1 = Rotor(1, alfabet,  0)
@@ -95,16 +91,21 @@ rotor1.lettervolgorde = RotorDraai(rotor1.stand, rotor1)
 rotor2.lettervolgorde = RotorDraai(rotor2.stand, rotor2)
 rotor3.lettervolgorde = RotorDraai(rotor3.stand, rotor3)
 
-#Hier gaan de letters daadwerkelijk door de rotoren:
+#Hier gaan de letters daadwerkelijk door de rotoren en steckerbrett.
 #Per letter wordt dit doorlopen.
 for x in TeVertalenLijst:
+  #Door steckerbrett
   if x in steckerbrett:
     x = steckerbrett[x]
-  x = LetterDoorRotoren(x)
-  if x in steckerbrett:
-    x = steckerbrett[x]
-  VertaaldeTekst.append(x)
 
+  #Door rotoren
+  x = LetterDoorRotoren(x)
+
+  #Door steckerbrett
+  if x in steckerbrett:
+    x = steckerbrett[x]
+    
+  VertaaldeTekst.append(x)
 
 #Printen van de gecodeerde tekst
 print("\nDit is de omgezette tekst:")
