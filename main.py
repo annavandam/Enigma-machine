@@ -44,8 +44,9 @@ def LetterDoorRotoren(InputLetter):
   return InputLetter
 
 #Hier wordt de gebruiker begeleid om de beginwaarden van de rotoren in te voeren en om de om te zetten tekst in te voeren. Verkeerde input wordt gemeld. Hierna kan de gebruiker zonder problemen de goede input invoeren.
-print("Voer de tien koppels van het stekkerbed in.")
+
 def SteckerbrettInstellen():
+  print("Voer de tien koppels van het stekkerbed in.")
   for x in range(10):
     while True:
       print("Koppel {}:".format(x+1))
